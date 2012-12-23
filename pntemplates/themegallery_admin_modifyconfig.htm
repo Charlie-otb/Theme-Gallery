@@ -1,0 +1,20 @@
+<!--[*  $Id: exampledb_admin_modifyconfig.htm 18389 2006-03-29 17:59:57Z markwest $  *]-->
+<!--[include file="themegallery_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+<div class="pn-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large alt='_MODIFYCONFIG' altml=true]--></div>
+<h2><!--[pnml name="_MODIFYCONFIG"]--></h2>
+<form class="pn-adminform" action="<!--[pnmodurl modname="ThemeGallery" type="admin" func="updateconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="ThemeGallery"]-->" />
+	<div class="pn-adminformrow">
+		<label for="exampledb_itemsperpage"><!--[pnml name="_ITEMSPERPAGE"]--></label>
+		<input id="exampledb_itemsperpage" type="text" name="itemsperpage" size="3" value="<!--[$itemsperpage|pnvarprepfordisplay]-->" />
+	</div>
+	<!--[pnmodcallhooks hookobject="module" hookaction="modifyconfig" hookid="ThemeGallery" module="ThemeGallery"]-->
+    <div class="pn-adminformrow pn-adminformbuttons">
+    <a href="<!--[pnmodurl modname=ThemeGallery type=admin func=view]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small altml=true titleml=true alt="_CANCEL" title="_CANCEL"]--></a>
+    <!--[pnbutton src=button_ok.gif set=icons/small alt="_UPDATECONFIG" title="_UPDATECONFIG"]-->
+    </div>
+</div>
+</form>
+</div>

@@ -1,0 +1,30 @@
+<!--[*  $Id: ThemeGallery_user_view.htm 16952 2005-10-29 14:24:38Z rgasch $  *]-->
+<!--[include file=themegallery_admin_menu.htm]-->
+<div class="pn-admincontainer">
+<div class="pn-adminpageicon"><!--[pnimg modname=core src=windowlist.gif set=icons/large alt='_THEMEGALLERY_ADMINVIEW' altml=true]--></div>
+<h2><!--[pnml name="_THEMEGALLERY_ADMINVIEW"]--></h2>
+<table class="pn-admintable">
+  <thead>
+  <tr>
+      <th><!--[pnml name="_THEME"]--></th>
+      <th><!--[pnml name="_THEMEGALLERY_PREVIEWIMAGES"]--></th>
+      <th><!--[pnml name="_OPTIONS"]--></th>
+  </tr>
+  </thead>
+  <tbody>
+  <!--[foreach from=$themes item=theme]-->  
+    <tr class="<!--[cycle values=pn-odd,pn-even]-->">
+      <td><a href="<!--[pnmodurl modname=ThemeGallery func=display themename=$theme.name]-->"><!--[$theme.displayname|pnvarprephtmldisplay]--></a></td>
+      <td><!--[$theme.previewimages|yesno]--></td>
+	  <td>
+	    <!--[assign var="options" value=$theme.options]-->
+        <!--[section name=options loop=$options]-->
+          <a href="<!--[$options[options].url|pnvarprepfordisplay]-->"><!--[pnimg modname=core set=icons/extrasmall src=$options[options].image alt=$options[options].title]--></a>
+		<!--[if !$smarty.section.options.last]--> | <!--[/if]-->
+        <!--[/section]-->
+      </td>
+    </tr>
+  <!--[/foreach]-->
+  </tbody>
+</table>
+<!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum img_prev=images/icons/extrasmall/previous.gif img_next=images/icons/extrasmall/next.gif]--></div>

@@ -1,0 +1,11 @@
+<!--[*  $Id: ThemeGallery_block_first.htm 16952 2005-10-29 14:24:38Z rgasch $  *]-->
+<div style="text-align:center;">
+<!--[section name="items" loop=$items]-->
+<!--[if $items[items].url neq '']-->
+<a href="<!--[$items[items].url|pnmodcallhooks|pnvarprephtmldisplay|pnvarcensor]-->"><!--[$items[items].title|pnmodcallhooks|pnvarprephtmldisplay|pnvarcensor]--></a>
+<!--[else]-->
+<!--[$items[items].title|pnmodcallhooks|pnvarprephtmldisplay|pnvarcensor]-->
+<!--[/if]-->
+<br />
+<!--[/section]-->
+</div>

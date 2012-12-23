@@ -1,0 +1,30 @@
+<!--[*  $Id: ThemeGallery_user_view.htm 16952 2005-10-29 14:24:38Z rgasch $  *]-->
+<!--[include file="themegallery_user_menu.htm"]-->
+<ul id="themegallery_itemlist">
+	<!--[foreach from=$themes item=theme]-->
+	<li>
+		<div class="themegallery-info">
+			<h3><a href="<!--[pnmodurl modname=ThemeGallery func=display themename=$theme.name]-->" title="<!--[$theme.displayname]--> - <!--[$theme.description]-->"><!--[$theme.displayname]--></a></h3>
+			<p><!--[$theme.description]--></p>
+			<ul>
+				<li><a href="<!--[pnmodurl modname=ThemeGallery func=display themename=$theme.name]-->" title="Vorschau <!--[$theme.displayname]--> - <!--[$theme.description]-->">Vorschau</a></li>
+                <!--[if $theme_change]-->
+				<li><a href="<!--[pnmodurl modname=ThemeGallery func=loremipsum newtheme=$theme.name]-->" title="Test  <!--[$theme.displayname]--> - <!--[$theme.description]-->">Test </a></li>
+				<!--[else]-->
+				<li><a href="<!--[pnmodurl modname=ThemeGallery func=loremipsum theme=$theme.name]-->" title="Test <!--[$theme.displayname]--> - <!--[$theme.description]-->">Test</a></li>
+				<!--[/if]-->
+				<li><a href="http://postnuke-themes.de/index.php?module=Downloads&amp;func=sublevel&amp;cid=1" title="Download">Download</a></li>
+			</ul>
+ 		</div>
+		<div class="themegallery-preview">
+			<!--[if $theme.previewavailable eq true]-->
+			<a href="<!--[pnmodurl modname=ThemeGallery func=display themename=$theme.name]-->" title="Vorschau <!--[$theme.displayname]--> - <!--[$theme.description]-->"><img src="themes/<!--[$theme.directory]-->/images/preview_small.png" alt="Vorschau <!--[$theme.displayname]-->" title="Vorschau <!--[$theme.displayname]-->" /></a>
+			<!--[else]-->
+			<a href="<!--[pnmodurl modname=ThemeGallery func=display themename=$theme.name]-->" title="Vorschau <!--[$theme.displayname]--> - <!--[$theme.description]-->"><img src="modules/ThemeGallery/pnimages/preview_small.png" alt="Vorschau <!--[$theme.displayname]-->" title="Vorschau <!--[$theme.displayname]-->" /></a>
+			<!--[/if]-->
+		</div>
+	</li>
+	<!--[/foreach]-->
+</ul>
+<div><!--[pnml name=_THEMEGALLERY_COUNT]--> : <!--[$pager.numitems]--></div>
+<div><!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum]--></div>
